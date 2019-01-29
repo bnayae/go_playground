@@ -6,10 +6,12 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 	"sync"
 )
 
 func main() {
+	fmt.Println("Threads", runtime.GOMAXPROCS(-1))
 	data, wg := "hello", sync.WaitGroup{}
 	wg.Add(1)
 	go exec(data, &wg)
